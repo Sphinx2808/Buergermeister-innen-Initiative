@@ -132,7 +132,7 @@ img {
   min-height: 1000px;
   background:
     linear-gradient(180deg, rgba(248, 246, 242, 0.08), rgba(248, 246, 242, 0.18)),
-    url("/ChatGPT%20Image%206.%20Juni%202026,%20klein.png") center top / contain no-repeat;
+    url("./Bild1.png") center top / contain no-repeat;
   background-color: #f6f4f0;
 }
 
