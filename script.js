@@ -57,7 +57,7 @@
   });
 
   const fixFaqText = (root) => {
-    root.querySelectorAll('a[href="/faqs/"], .page-hero .eyebrow, .page-hero h1').forEach((node) => {
+    root.querySelectorAll('a[href="/faqs/"], a[href$="faqs/"], .page-hero .eyebrow, .page-hero h1').forEach((node) => {
       if (node.textContent && node.textContent.trim() === 'FAQS') {
         node.textContent = 'FAQs';
       }
