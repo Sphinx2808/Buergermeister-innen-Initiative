@@ -18,6 +18,12 @@
   const modals = new Map(Array.from(document.querySelectorAll('.video-modal')).map((modal) => [modal.id, modal]));
   const modalTriggers = document.querySelectorAll('[data-modal-open]');
   const modalCloseTargets = document.querySelectorAll('[data-modal-close]');
+  const signatureForm = document.getElementById('custom-signature-form');
+  const signatureConsent = document.getElementById('signature-consent');
+  const signatureConsentValue = document.getElementById('jotform-consent-value');
+  const signatureSubmitDate = document.getElementById('jotform-submit-date');
+  const signatureHcaptchaVisible = document.getElementById('jotform-hcaptcha-visible');
+  const consentBackendValue = 'Ich habe die Datenschutzerklärung zur Kenntniss genommen und ich willige ein, dass meine personenbezogenen Daten zum Zweck der Prüfung meiner Unterstützung verarbeitet werden. Ich bin außerdem damit einverstanden, dass nach erfolgreicher manueller Prüfung mein Name, meine Funktion, meine Kommune und meine Statement auf dieser Website veröffentlicht werden';
 
   const openModal = (modalId) => {
     const modal = modals.get(modalId);
@@ -55,6 +61,37 @@
       document.querySelectorAll('.video-modal.open').forEach((modal) => closeModal(modal));
     }
   });
+
+  const syncConsentValue = () => {
+    if (!signatureConsentValue) return;
+    signatureConsentValue.value = signatureConsent && signatureConsent.checked ? consentBackendValue : '';
+  };
+
+  if (signatureConsent) {
+    signatureConsent.addEventListener('change', syncConsentValue);
+    syncConsentValue();
+  }
+
+  if (signatureForm) {
+    signatureForm.addEventListener('submit', () => {
+      if (signatureSubmitDate) {
+        signatureSubmitDate.value = String(Date.now());
+      }
+      syncConsentValue();
+    });
+  }
+
+  window.hcaptchaCallbackCustom = () => {
+    if (signatureHcaptchaVisible) {
+      signatureHcaptchaVisible.value = '1';
+    }
+  };
+
+  window.hcaptchaExpiredCallbackCustom = () => {
+    if (signatureHcaptchaVisible) {
+      signatureHcaptchaVisible.value = '';
+    }
+  };
 
   const fixFaqText = (root) => {
     root.querySelectorAll('a[href="/faqs/"], a[href$="faqs/"], .page-hero .eyebrow, .page-hero h1').forEach((node) => {

@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="de">
 <head>
   <meta charset="utf-8">
@@ -8,8 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Asap:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=20260801">
-  <script defer src="./script.js?v=20260732"></script>
+  <link rel="stylesheet" href="./style.css?v=20260802">
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  <script defer src="./script.js?v=20260733"></script>
 </head>
 <body class="home">
   <header class="site-header">
@@ -69,100 +70,104 @@
             <h2>weitere Unterzeichnende</h2>
             <p>Hier werden bald weitere Unterzeichnende des Aufrufes angezeigt.</p>
           </aside>
-          <div class="signature-form hero-contact-form jotform-embed">
-            <iframe
-              id="JotFormIFrame-262112882652052"
-              title="Unterschriftsformular"
-              sandbox="allow-forms allow-popups allow-scripts allow-top-navigation allow-same-origin"
-              allowtransparency="true"
-              allowfullscreen="true"
-              allow="geolocation; microphone; camera"
-              src="https://form.jotform.com/262112882652052"
-              frameborder="0"
-              scrolling="no"
-              style="width:100%; min-width:100%; height:539px; border:none;"
-            ></iframe>
-            <script type="text/javascript">
-              window.handleIFrameMessage = function (e) {
-                if (typeof e.data === 'object') {
-                  return;
-                }
+          <form
+            class="signature-form hero-contact-form custom-signature-form"
+            id="custom-signature-form"
+            action="https://submit.jotform.com/submit/262112882652052"
+            method="POST"
+            target="jotform-submit-frame"
+            accept-charset="utf-8"
+          >
+            <div class="form-intro">
+              <p class="panel-label">Jetzt unterschreiben</p>
+              <p class="form-intro-copy">
+                Sie sind Bürgermeister:in, Oberbürgermeister:in oder Bezirksbürgermeister:in und wollen Ihre Kommune stärken? Dann unterstützen Sie unseren Aufruf für handlungsfähige Städte und Gemeinden und unterschreiben Sie jetzt!
+              </p>
+              <p class="form-video-note">
+                Zudem möchten wir die Initiative öffentlichkeitswirksam durch Statements von Bürgermeister:innen in Form kurzer Videoclips begleiten. Die Mitwirkung ist freiwillig und keine Voraussetzung für die Unterzeichnung. Wenn Sie einen Beitrag aufnehmen möchten, finden Sie hier
+                <a
+                  class="inline-link video-info-trigger"
+                  href="#video-info-modal"
+                  data-modal-open="video-info-modal"
+                  aria-haspopup="dialog"
+                  aria-controls="video-info-modal"
+                ><strong>&gt;&gt; mehr Informationen zu den Videos</strong></a>.
+              </p>
+            </div>
 
-                var args = e.data.split(':');
-                var iframe = null;
-                if (args.length > 2) {
-                  iframe = document.getElementById('JotFormIFrame-' + args[2]);
-                } else {
-                  iframe = document.getElementById('JotFormIFrame-262112882652052');
-                }
-                if (!iframe) {
-                  return;
-                }
+            <input type="hidden" name="formID" value="262112882652052">
+            <input type="hidden" name="JWTContainer" id="jotform-jwt-container" value="">
+            <input type="hidden" name="cardinalOrderNumber" id="jotform-cardinal-order-number" value="">
+            <input type="hidden" name="jsExecutionTracker" value="build-date-1785599306585">
+            <input type="hidden" name="submitSource" value="unknown">
+            <input type="hidden" name="submitDate" id="jotform-submit-date" value="">
+            <input type="hidden" name="buildDate" value="1785599306585">
+            <input type="hidden" name="uploadServerUrl" value="https://upload.jotform.com/upload">
+            <input type="hidden" name="eventObserver" value="1">
+            <input type="hidden" name="simple_spc" value="262112882652052-262112882652052">
+            <input type="hidden" name="website" value="">
+            <input type="hidden" name="q13_typeA" id="jotform-consent-value" value="">
+            <input type="hidden" name="q24_verifizierungsstatus" value="">
+            <input type="hidden" name="hcaptcha_visible" id="jotform-hcaptcha-visible" value="">
 
-                switch (args[0]) {
-                  case 'scrollIntoView':
-                    iframe.scrollIntoView();
-                    break;
-                  case 'setHeight':
-                    iframe.style.height = args[1] + 'px';
-                    break;
-                  case 'collapseErrorPage':
-                    if (iframe.clientHeight > window.innerHeight) {
-                      iframe.style.height = window.innerHeight + 'px';
-                    }
-                    break;
-                  case 'reloadPage':
-                    window.location.reload();
-                    break;
-                  case 'loadScript':
-                    var src = args[1];
-                    if (args.length > 3) {
-                      src = args[1] + ':' + args[2];
-                    }
-                    var script = document.createElement('script');
-                    script.src = src;
-                    script.type = 'text/javascript';
-                    document.body.appendChild(script);
-                    break;
-                  case 'exitFullscreen':
-                    if (window.document.exitFullscreen) window.document.exitFullscreen();
-                    else if (window.document.mozCancelFullScreen) window.document.mozCancelFullScreen();
-                    else if (window.document.mozCancelFullscreen) window.document.mozCancelFullScreen();
-                    else if (window.document.webkitExitFullscreen) window.document.webkitExitFullscreen();
-                    else if (window.document.msExitFullscreen) window.document.msExitFullscreen();
-                    break;
-                }
+            <div class="form-grid">
+              <div class="field">
+                <label for="signature-first">Vorname <span class="required-star" aria-hidden="true">*</span></label>
+                <input id="signature-first" name="q2_q2_fullname0[first]" type="text" autocomplete="given-name" required>
+              </div>
+              <div class="field">
+                <label for="signature-last">Name <span class="required-star" aria-hidden="true">*</span></label>
+                <input id="signature-last" name="q2_q2_fullname0[last]" type="text" autocomplete="family-name" required>
+              </div>
+              <div class="field">
+                <label for="signature-office">Amtsbezeichnung <span class="required-star" aria-hidden="true">*</span></label>
+                <input id="signature-office" name="q20_amtsbezeichnung" type="text" autocomplete="organization-title" required>
+              </div>
+              <div class="field">
+                <label for="signature-municipality">Kommune/Landkreis <span class="required-star" aria-hidden="true">*</span></label>
+                <input id="signature-municipality" name="q21_kommunelandkreis" type="text" autocomplete="address-level2" required>
+              </div>
+              <div class="field field-full">
+                <label for="signature-email">E-Mail-Adresse <span class="required-star" aria-hidden="true">*</span> <span class="email-hint">(Bitte nutzen Sie nach Möglichkeit Ihre institutionelle Emailadresse.)</span></label>
+                <input id="signature-email" name="q23_emailadresse" type="email" autocomplete="email" required>
+              </div>
+              <div class="field field-full">
+                <label for="signature-statement">Persönliches Statement</label>
+                <textarea id="signature-statement" name="q4_q4_textarea2" rows="6"></textarea>
+              </div>
+              <div class="field field-full">
+                <label class="checkline consent-checkline" for="signature-consent">
+                  <input id="signature-consent" type="checkbox" required>
+                  <span>
+                    Ich habe die <a href="./datenschutz/">Datenschutzerklärung</a> zur Kenntnis genommen und willige in die Verarbeitung meiner personenbezogenen Daten gemäß der <a href="#consent-modal" data-modal-open="consent-modal" aria-haspopup="dialog" aria-controls="consent-modal">Einwilligungserklärung</a> ein. Ich weiß, dass ich meine Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen kann. <span class="consent-checkmark" aria-hidden="true">✓</span>
+                  </span>
+                </label>
+              </div>
+              <div class="field field-full captcha-block">
+                <p class="captcha-label">Bitte bestätigen Sie, dass Sie ein Mensch sind.</p>
+                <div class="h-captcha" data-sitekey="772f4a50-7161-425e-8cd5-4d7e361ab765" data-callback="hcaptchaCallbackCustom" data-expired-callback="hcaptchaExpiredCallbackCustom"></div>
+              </div>
+            </div>
 
-                var isJotForm = e.origin && e.origin.indexOf('jotform') > -1;
-                if (isJotForm && 'contentWindow' in iframe && 'postMessage' in iframe.contentWindow) {
-                  var urls = {
-                    docurl: encodeURIComponent(document.URL),
-                    referrer: encodeURIComponent(document.referrer),
-                  };
-                  iframe.contentWindow.postMessage(JSON.stringify({ type: 'urls', value: urls }), '*');
-                }
-
-              };
-
-              if (window.addEventListener) {
-                window.addEventListener('message', window.handleIFrameMessage, false);
-              } else if (window.attachEvent) {
-                window.attachEvent('onmessage', window.handleIFrameMessage);
-              }
-            </script>
-          </div>
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Jetzt unterschreiben</button>
+            </div>
+          </form>
+          <iframe
+            id="jotform-submit-frame"
+            name="jotform-submit-frame"
+            title="Jotform submission frame"
+            sandbox="allow-forms allow-popups allow-scripts allow-top-navigation allow-same-origin"
+            src="about:blank"
+            aria-hidden="true"
+            tabindex="-1"
+            class="jotform-submit-frame"
+          ></iframe>
           <aside class="hero-panel hero-statement-panel" style="margin-top:1.4rem;">
             <p class="panel-label">Statements</p>
-            <h2>Unterstützen Sie die Initative mit einem Video-Statement!</h2>
+            <h2>Video-Statements der Bürgermeister:innen</h2>
             <p>
-              Wir möchten die Initiative öffentlichkeitswirksam durch Statements von Bürgermeister:innen in Form kurzer Videoclips begleiten. Machen Sie die kommunale Perspektive sichtbar und schicken Sie uns ein kurzes Video, das wir an dieser Stelle veröffentlichen. Hier finden sie
-              <a
-                class="inline-link video-info-trigger"
-                href="#video-info-modal"
-                data-modal-open="video-info-modal"
-                aria-haspopup="dialog"
-                aria-controls="video-info-modal"
-              ><strong>&gt;&gt; mehr Informationen zu den Videos</strong></a>.
+              Hier werden in Zukunft Video-Statements von Bürgermeister:innen präsentiert, um die kommunale Perspektive sichtbar zu machen.
             </p>
           </aside>
         </div>
@@ -290,3 +295,4 @@
   </footer>
 </body>
 </html>
+

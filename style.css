@@ -659,6 +659,112 @@ h1 {
   gap: 0.65rem;
 }
 
+.custom-signature-form {
+  position: relative;
+  gap: 1rem;
+}
+
+.form-intro {
+  display: grid;
+  gap: 0.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.form-intro-copy,
+.form-video-note {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.form-video-note {
+  color: var(--text);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.95rem 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.field-full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.required-star {
+  color: #d40000;
+  font-weight: 700;
+  margin-left: 0.15rem;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(43, 43, 43, 0.18);
+  border-radius: 12px;
+  font: inherit;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 9rem;
+}
+
+.checkline.consent-checkline {
+  font-weight: 400;
+}
+
+.consent-checkline a {
+  white-space: normal;
+}
+
+.consent-checkmark {
+  color: #d40000;
+  font-weight: 700;
+}
+
+.captcha-block {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.captcha-label {
+  margin: 0;
+  font-weight: 600;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.4rem;
+}
+
+.form-actions .btn {
+  width: min(360px, 100%);
+  justify-content: center;
+}
+
+.jotform-submit-frame {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  border: 0;
+}
+
 .signup-form {
   display: grid;
   gap: 0.75rem;
@@ -696,6 +802,10 @@ h1 {
   resize: vertical;
 }
 
+.signature-form input[type="hidden"] {
+  display: none;
+}
+
 .signup-form textarea {
   resize: vertical;
 }
@@ -710,6 +820,9 @@ h1 {
 
 .checkline input {
   width: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
   margin-top: 0.2rem;
   accent-color: var(--accent);
 }
@@ -870,7 +983,7 @@ h1 {
 }
 
 .prose {
-  max-width: 75ch;
+  max-width: 92ch;
 }
 
 .contact-left {
@@ -982,6 +1095,10 @@ h1 {
   .contact-grid,
   .quote-grid,
   .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
     grid-template-columns: 1fr;
   }
 
