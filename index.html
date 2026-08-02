@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Asap:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=20260755">
+  <link rel="stylesheet" href="./style.css?v=20260801">
   <script defer src="./script.js?v=20260732"></script>
 </head>
 <body class="home">
@@ -21,7 +21,7 @@
       <nav id="site-nav" class="site-nav" aria-label="Hauptnavigation">
         <a class="active" href="./">Aufruf</a>
         <a href="./unterstuetzer-unterstuetzerinnen-unterschriften/">Unterzeichnende</a>
-        <a href="./faqs/">FAQs</a>
+        <a class="faq-link" href="./faqs/">FAQs</a>
         <a href="./datenschutz/">Datenschutz</a>
         <a href="./kontakt/">Kontakt</a>
       </nav>
@@ -69,19 +69,93 @@
             <h2>weitere Unterzeichnende</h2>
             <p>Hier werden bald weitere Unterzeichnende des Aufrufes angezeigt.</p>
           </aside>
-          <form class="signature-form hero-contact-form" action="https://submitkit.dev/api/f/cms80q0z50010spgxtqhq20p4" method="POST">
-            <input type="text" name="_honeypot" style="position:absolute;left:-9999px" tabindex="-1" autocomplete="off">
-            <input type="hidden" name="_timestamp" id="sk-timestamp">
-            <div class="section-heading">
-              <p class="eyebrow">jetzt unterschreiben</p>
-            </div>
+          <div class="signature-form hero-contact-form jotform-embed">
+            <iframe
+              id="JotFormIFrame-262112882652052"
+              title="Unterschriftsformular"
+              sandbox="allow-forms allow-popups allow-scripts allow-top-navigation allow-same-origin"
+              allowtransparency="true"
+              allowfullscreen="true"
+              allow="geolocation; microphone; camera"
+              src="https://form.jotform.com/262112882652052"
+              frameborder="0"
+              scrolling="no"
+              style="width:100%; min-width:100%; height:539px; border:none;"
+            ></iframe>
+            <script type="text/javascript">
+              window.handleIFrameMessage = function (e) {
+                if (typeof e.data === 'object') {
+                  return;
+                }
+
+                var args = e.data.split(':');
+                var iframe = null;
+                if (args.length > 2) {
+                  iframe = document.getElementById('JotFormIFrame-' + args[2]);
+                } else {
+                  iframe = document.getElementById('JotFormIFrame-262112882652052');
+                }
+                if (!iframe) {
+                  return;
+                }
+
+                switch (args[0]) {
+                  case 'scrollIntoView':
+                    iframe.scrollIntoView();
+                    break;
+                  case 'setHeight':
+                    iframe.style.height = args[1] + 'px';
+                    break;
+                  case 'collapseErrorPage':
+                    if (iframe.clientHeight > window.innerHeight) {
+                      iframe.style.height = window.innerHeight + 'px';
+                    }
+                    break;
+                  case 'reloadPage':
+                    window.location.reload();
+                    break;
+                  case 'loadScript':
+                    var src = args[1];
+                    if (args.length > 3) {
+                      src = args[1] + ':' + args[2];
+                    }
+                    var script = document.createElement('script');
+                    script.src = src;
+                    script.type = 'text/javascript';
+                    document.body.appendChild(script);
+                    break;
+                  case 'exitFullscreen':
+                    if (window.document.exitFullscreen) window.document.exitFullscreen();
+                    else if (window.document.mozCancelFullScreen) window.document.mozCancelFullScreen();
+                    else if (window.document.mozCancelFullscreen) window.document.mozCancelFullScreen();
+                    else if (window.document.webkitExitFullscreen) window.document.webkitExitFullscreen();
+                    else if (window.document.msExitFullscreen) window.document.msExitFullscreen();
+                    break;
+                }
+
+                var isJotForm = e.origin && e.origin.indexOf('jotform') > -1;
+                if (isJotForm && 'contentWindow' in iframe && 'postMessage' in iframe.contentWindow) {
+                  var urls = {
+                    docurl: encodeURIComponent(document.URL),
+                    referrer: encodeURIComponent(document.referrer),
+                  };
+                  iframe.contentWindow.postMessage(JSON.stringify({ type: 'urls', value: urls }), '*');
+                }
+
+              };
+
+              if (window.addEventListener) {
+                window.addEventListener('message', window.handleIFrameMessage, false);
+              } else if (window.attachEvent) {
+                window.attachEvent('onmessage', window.handleIFrameMessage);
+              }
+            </script>
+          </div>
+          <aside class="hero-panel hero-statement-panel" style="margin-top:1.4rem;">
+            <p class="panel-label">Statements</p>
+            <h2>Unterstützen Sie die Initative mit einem Video-Statement!</h2>
             <p>
-              Sie sind Bürgermeister:innen, Oberbürgermeister:innen oder Bezirksbürgermeister:innen und wollen Ihre
-              Kommune stärken? Dann unterstützen Sie unseren Aufruf für handlungsfähige Städte und Gemeinden und
-              <strong>unterschreiben Sie jetzt!</strong>
-            </p>
-            <p>
-              Zudem möchten wir die Initiative öffentlichkeitswirksam durch Statements von Bürgermeister:innen in Form kurzer Videoclips begleiten. Die Mitwirkung ist freiwillig und keine Voraussetzung für die Unterzeichnung. Wenn Sie einen Beitrag aufnehmen möchten, finden Sie hier
+              Wir möchten die Initiative öffentlichkeitswirksam durch Statements von Bürgermeister:innen in Form kurzer Videoclips begleiten. Machen Sie die kommunale Perspektive sichtbar und schicken Sie uns ein kurzes Video, das wir an dieser Stelle veröffentlichen. Hier finden sie
               <a
                 class="inline-link video-info-trigger"
                 href="#video-info-modal"
@@ -89,42 +163,6 @@
                 aria-haspopup="dialog"
                 aria-controls="video-info-modal"
               ><strong>&gt;&gt; mehr Informationen zu den Videos</strong></a>.
-            </p>
-            <label for="c-fname">Vorname</label>
-            <input id="c-fname" name="vorname" type="text" required>
-
-            <label for="c-lname">Name</label>
-            <input id="c-lname" name="name" type="text" required>
-
-            <label for="c-title">Amtsbezeichnung</label>
-            <input id="c-title" name="amtsbezeichnung" type="text" required>
-
-            <label for="c-city">Kommune/Landkreis</label>
-            <input id="c-city" name="kommune_landkreis" type="text" required>
-
-            <label for="c-email">Email-Adresse: <span class="email-hint">(Bitte nutzen Sie nach Möglichkeit Ihre institutionelle Emailadresse.)</span></label>
-            <input id="c-email" name="email" type="email" required>
-
-            <label for="c-comment">Persönliches Statement: Warum unterstütze ich den Aufruf?</label>
-            <textarea id="c-comment" name="statement" rows="5" required></textarea>
-
-            <label class="checkline" for="c-privacy">
-              <input id="c-privacy" name="c-privacy" type="checkbox" required>
-              <span>
-                Ich habe die <a href="./datenschutz/">Datenschutzerklärung</a> zur Kenntnis genommen und willige in die Verarbeitung meiner personenbezogenen Daten gemäß der
-                <a class="inline-link consent-info-trigger consent-black" href="#consent-modal" data-modal-open="consent-modal" aria-haspopup="dialog" aria-controls="consent-modal"><strong>Einwilligungserklärung</strong></a>
-                ein. Ich weiß, dass ich meine Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen kann.
-              </span>
-            </label>
-
-            <p class="form-note">Die Daten werden nach einer Prüfung veröffentlicht.</p>
-            <button type="submit" class="btn btn-primary btn-block">Jetzt unterschreiben</button>
-          </form>
-          <aside class="hero-panel hero-statement-panel" style="margin-top:1.4rem;">
-            <p class="panel-label">Statements</p>
-            <h2>Statements der Bürgermeister:innen</h2>
-            <p>
-              Hier werden in Zukunft Videostatements von Bürgermeister:innen präsentiert, um die kommunale Perspektive sichtbar zu machen.
             </p>
           </aside>
         </div>

@@ -78,11 +78,21 @@ img {
   color: rgba(43, 43, 43, 0.8);
 }
 
-.site-nav a[href="/faqs/"] {
+.site-nav a[href="/faqs/"],
+.site-nav a[href$="/faqs/"],
+.site-nav a[href$="faqs/"] {
   text-transform: none;
 }
 
+.site-nav a.faq-link {
+  text-transform: none !important;
+}
+
 .page-hero .eyebrow.eyebrow-faqs {
+  text-transform: none !important;
+}
+
+.faq-lower {
   text-transform: none !important;
 }
 
@@ -219,7 +229,8 @@ img {
   width: min(100%, 1240px);
   margin-left: auto;
   margin-right: auto;
-  grid-template-columns: minmax(0, 2.05fr) minmax(320px, 0.72fr);
+  grid-template-columns: minmax(0, 1.75fr) minmax(420px, 1fr);
+  column-gap: 1.1rem;
 }
 
 .hero-panel,
@@ -238,7 +249,36 @@ img {
 .hero-grid-home .hero-contact-form {
   grid-column: 1;
   grid-row: 2;
-  padding: 3rem 3.25rem;
+  padding: 1.85rem 2rem;
+  max-width: none;
+  width: 100%;
+  justify-self: stretch;
+}
+
+.hero-grid-home .jotform-embed {
+  display: block;
+  width: 100%;
+  margin-top: 0;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+}
+
+.hero-grid-home .jotform-embed iframe {
+  display: block;
+  width: 100% !important;
+  min-width: 100% !important;
+  border: 0 !important;
+  background: transparent;
+}
+
+.hero-grid-home .jotform-embed > script {
+  display: none;
+}
+
+.jotform-embed,
+.jotform-embed * {
+  font-family: inherit;
 }
 
 .hero-grid-home .hero-statement-panel {
@@ -246,6 +286,7 @@ img {
   grid-row: 2;
   margin-top: 0;
   align-self: start;
+  width: 100%;
 }
 
 .hero-grid-home .hero-copy {

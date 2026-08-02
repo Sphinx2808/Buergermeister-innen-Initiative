@@ -69,9 +69,4 @@
   };
 
   fixFaqText(document);
-
-  const timestampField = document.getElementById('sk-timestamp');
-  if (timestampField) {
-    timestampField.value = String(Date.now());
-  }
 })();
