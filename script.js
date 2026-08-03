@@ -19,11 +19,14 @@
   const modalTriggers = document.querySelectorAll('[data-modal-open]');
   const modalCloseTargets = document.querySelectorAll('[data-modal-close]');
   const signatureForm = document.getElementById('custom-signature-form');
+  const signatureSubmitFrame = document.getElementById('jotform-submit-frame');
   const signatureConsent = document.getElementById('signature-consent');
   const signatureConsentValue = document.getElementById('jotform-consent-value');
   const signatureSubmitDate = document.getElementById('jotform-submit-date');
   const signatureHcaptchaVisible = document.getElementById('jotform-hcaptcha-visible');
+  const thankYouRedirectUrl = 'https://sphinx2808.github.io/Buergermeister-innen-Initiative/danke/';
   const consentBackendValue = 'Ich habe die Datenschutzerklärung zur Kenntniss genommen und ich willige ein, dass meine personenbezogenen Daten zum Zweck der Prüfung meiner Unterstützung verarbeitet werden. Ich bin außerdem damit einverstanden, dass nach erfolgreicher manueller Prüfung mein Name, meine Funktion, meine Kommune und meine Statement auf dieser Website veröffentlicht werden';
+  let signatureSubmitted = false;
 
   const openModal = (modalId) => {
     const modal = modals.get(modalId);
@@ -74,10 +77,18 @@
 
   if (signatureForm) {
     signatureForm.addEventListener('submit', () => {
+      signatureSubmitted = true;
       if (signatureSubmitDate) {
         signatureSubmitDate.value = String(Date.now());
       }
       syncConsentValue();
+    });
+  }
+
+  if (signatureSubmitFrame) {
+    signatureSubmitFrame.addEventListener('load', () => {
+      if (!signatureSubmitted) return;
+      window.location.href = thankYouRedirectUrl;
     });
   }
 
