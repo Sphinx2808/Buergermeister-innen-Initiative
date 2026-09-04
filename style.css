@@ -357,21 +357,21 @@ img {
 
 .logo-grid {
   display: grid;
-  gap: 1rem;
+  gap: 0.65rem;
 }
 
 .logo-row {
   display: grid;
-  gap: 1rem;
+  gap: 0.65rem;
 }
 
 .logo-row-top {
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(8, minmax(0, 1fr));
 }
 
 .logo-row-bottom {
-  width: 100%;
-  margin-inline: 0;
+  width: calc(87.5% - 0.08rem);
+  margin-inline: auto;
   grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
@@ -379,8 +379,9 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 0;
   min-height: 116px;
-  padding: 0.9rem;
+  padding: 0.65rem;
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -389,8 +390,8 @@ img {
 
 .logo-card img {
   width: 100%;
-  max-width: 162px;
-  max-height: 68px;
+  max-width: 210px;
+  max-height: 72px;
   object-fit: contain;
 }
 
